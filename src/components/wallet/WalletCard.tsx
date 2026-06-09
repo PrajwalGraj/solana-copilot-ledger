@@ -45,7 +45,7 @@ export function WalletCard({ wallet }: WalletCardProps) {
               : `${wallet.devnetBalanceSol} SOL`
           }
         />
-        <Row label="Last Transaction" value={shorten(wallet.lastTransaction)} mono />
+ 
         <Row
           label="Connection Status"
           value={wallet.connectionStatus}
