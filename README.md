@@ -1,40 +1,71 @@
 # Solana Copilot
 
-**Ledger Wallet CLI-powered AI interface for Solana.**
+Ledger-powered AI interface for Solana.
 
-Demo Video: [Link](https://x.com/prajwalrajjj/status/2064341599749030102)
+## Demo
 
-Solana Copilot is a conversational interface for Solana that allows users to interact with the blockchain using natural language.
-
-Instead of navigating wallets, explorers, and multiple applications, users can simply describe what they want to do. Solana Copilot interprets the request, prepares the required transaction flow, and routes execution through Ledger's signing workflow.
-
-The goal is to make blockchain interactions more intuitive while keeping transaction authorization separate from the application itself.
+🎥 Demo Video: [Link](https://x.com/prajwalrajjj/status/2064341599749030102)
 
 ---
 
-## Why Solana Copilot?
+## Overview
 
-AI agents and applications are becoming increasingly capable of interacting with blockchains.
+Solana Copilot is a conversational interface for Solana that allows users to interact with the blockchain using natural language.
 
-They can analyze information, prepare transactions, and automate workflows.
+Instead of navigating multiple wallets, explorers, and applications, users can simply describe what they want to do.
 
-However, many systems today rely on software-managed secrets such as:
+Examples:
+
+```text
+Get my address
+
+Check my balance
+
+Send 0.1 SOL to <address>
+
+Create token LEDGTEST
+
+Create token LEDGTEST supply 1000000 decimals 9
+```
+
+Solana Copilot interprets the request, builds the required Solana transaction, and routes signing through Ledger's approval workflow.
+
+The key idea is simple:
+
+**The application can prepare transactions.**
+
+**Ledger authorizes them.**
+
+---
+
+# Why Solana Copilot?
+
+AI agents are becoming increasingly capable of interacting with blockchains.
+
+They can:
+
+* Analyze information
+* Generate transactions
+* Execute workflows
+* Move assets
+
+However, many systems still rely on software-managed secrets such as:
 
 * Environment variables
 * Local private key files
 * Cloud-hosted credentials
 
-While these approaches work, they introduce additional risk when real assets are involved.
+When real assets are involved, this creates additional risk.
 
 Solana Copilot explores a different model:
 
-The application helps users interact with Solana, while transaction authorization remains under Ledger's control.
+The application helps users interact with Solana, while transaction authorization remains separate from the application itself.
 
 ---
 
-## The Problem
+# The Problem
 
-Traditional AI-powered crypto applications often follow this model:
+Traditional AI-powered crypto applications often look like this:
 
 ```text
 User
@@ -46,13 +77,13 @@ Private Key
 Blockchain
 ```
 
-In this model, the same system that prepares actions also controls the authority required to execute them.
+The same system that prepares actions also controls the authority required to execute them.
 
 This creates unnecessary risk.
 
 ---
 
-## The Ledger Agent Stack
+# The Ledger Agent Stack
 
 Ledger recently introduced an open-source Agent Stack designed for agent-driven and AI-powered applications.
 
@@ -60,7 +91,7 @@ The stack includes:
 
 ### DMK Skills
 
-A developer toolkit that allows applications and agents to communicate with Ledger devices.
+A toolkit that allows applications and agents to communicate with Ledger devices.
 
 Supports:
 
@@ -68,7 +99,7 @@ Supports:
 * Bitcoin
 * Solana
 * Cosmos
-* FIDO2 human-in-the-loop workflows
+* FIDO2 workflows
 
 ### Ledger Wallet CLI
 
@@ -94,17 +125,15 @@ Enterprise-grade signing workflows with policy enforcement and HSM-backed contro
 
 Tools for treasury operations, payroll systems, scheduled transfers, and multisig workflows.
 
-Across all four components, the core principle remains the same:
+Across all components, the core principle remains the same:
 
-**Transaction authorization remains separate from transaction preparation.**
+**Transaction preparation and transaction authorization remain separate.**
 
 ---
 
-## How Solana Copilot Uses Ledger
+# How Solana Copilot Uses Ledger
 
-This project focuses on **Ledger Wallet CLI**.
-
-Wallet CLI serves as the transaction execution and signing layer behind the application.
+This project uses Ledger's signing workflow together with Speculos, Ledger's open-source device emulator.
 
 Architecture:
 
@@ -113,81 +142,62 @@ User
  ↓
 Solana Copilot
  ↓
+Intent Parsing
+ ↓
 Transaction Builder
  ↓
-Ledger Wallet CLI
+Ledger Signing Flow
  ↓
-Ledger Device / Speculos
+Speculos
  ↓
-Solana Network
+Solana Devnet
 ```
 
-The web application provides the user experience.
+The application provides the user experience.
 
-Ledger Wallet CLI provides the signing workflow.
+Ledger provides the transaction authorization layer.
 
-The application never directly controls private keys.
+Private keys never enter the application logic.
 
 ---
 
-## Features
+# Features
 
-### Natural Language Interface
+## Natural Language Interface
 
 Examples:
 
 ```text
+Get my address
+
+Check my balance
+
 Send 0.1 SOL to <address>
+
+Create token LEDGTEST
+
+Create token LEDGTEST supply 1000000 decimals 9
 ```
-
-```text
-Swap 1 SOL to USDC
-```
-
-```text
-Create a token called PRAJ
-```
-
-### Transaction Builder
-
-The application:
-
-* Understands user requests
-* Extracts required parameters
-* Resolves addresses
-* Prepares transaction flows
-* Generates transaction summaries
-
-### Ledger-Based Transaction Approval
-
-Before execution:
-
-* Transaction details are displayed
-* Amounts are reviewed
-* Recipients are reviewed
-* Network fees are displayed
-* Ledger approval is required
-
-### Solana Operations
-
-Current functionality includes:
-
-* Address resolution
-* Wallet lookup
-* Balance queries
-* SOL transfers
-* Transaction review flow
 
 ---
 
-## User Flow
+## Address & Balance Lookup
 
-### Sending SOL
+Users can retrieve:
 
-User input:
+* Wallet address
+* SOL balance
+
+directly from chat.
+
+---
+
+## SOL Transfers
+
+Example:
 
 ```text
-Send 0.1 SOL to <address>
+Send 0.1 SOL to 9mSSAxDAcHgR2mAu39Xw9pn7yjB2xHRsiV16bnUSWfcK
 ```
 
 Flow:
@@ -195,91 +205,172 @@ Flow:
 ```text
 User Request
       ↓
-Address Resolution
-      ↓
 Transaction Creation
       ↓
-Transaction Review
+Ledger Review
       ↓
-Ledger Approval
+Speculos Approval
       ↓
 Broadcast
       ↓
-Success
+Confirmation
 ```
 
 ---
 
-## Technology Stack
+## SPL Token Creation
 
-### Frontend
+Example:
+
+```text
+Create token LEDGTEST supply 1000000 decimals 9
+```
+
+Flow:
+
+```text
+User Request
+      ↓
+Mint Creation
+      ↓
+Token Account Creation
+      ↓
+Ledger Review
+      ↓
+Speculos Approval
+      ↓
+Broadcast
+      ↓
+Token Created
+```
+
+The created token is a standard SPL Token deployed on Solana Devnet.
+
+---
+
+## Ledger Approval Workflow
+
+Before execution:
+
+* Transaction details are displayed
+* Amounts are reviewed
+* Recipients are reviewed
+* Token parameters are reviewed
+* Ledger approval is required
+
+Transactions cannot be executed without approval.
+
+---
+
+# Technology Stack
+
+## Frontend
 
 * React
 * TypeScript
 * Tailwind CSS
 
-### Blockchain
+## Backend
+
+* Node.js
+* Express
+
+## Blockchain
 
 * Solana
-* Solana Web3.js
+* @solana/web3.js
+* @solana/spl-token
 
-### Security Layer
+## Security Layer
 
-* Ledger Wallet CLI
 * Ledger Agent Stack
-* Speculos Emulator (development)
+* Speculos Emulator
 
 ---
 
-## Ledger Wallet CLI Integration
-
-The project uses Ledger Wallet CLI as the transaction execution layer.
-
-Examples:
-
-```bash
-wallet-cli --version
-```
-
-```bash
-wallet-cli account discover solana
-```
-
-```bash
-wallet-cli balances <account>
-```
-
-```bash
-wallet-cli send ...
-```
-
-```bash
-wallet-cli swap ...
-```
-
-The application is designed so that Ledger-specific functionality remains isolated from the user interface.
-
----
-
-## Security Model
+# Security Model
 
 The application is responsible for:
 
-* Understanding user requests
-* Preparing transactions
+* Understanding user intent
+* Building transactions
 * Generating transaction summaries
 
-The application is not responsible for:
+The application is NOT responsible for:
 
 * Storing private keys
 * Signing transactions
 * Authorizing transfers
 
-Authorization remains under Ledger's control.
+Transaction authorization remains outside the application.
 
 ---
 
-## Acknowledgements
+# Example Workflow
+
+### Send SOL
+
+```text
+Send 0.1 SOL to <address>
+```
+
+```text
+User
+ ↓
+Intent Parsed
+ ↓
+Transaction Built
+ ↓
+Review in Speculos
+ ↓
+Approve
+ ↓
+Signed
+ ↓
+Broadcast
+ ↓
+Confirmed
+```
+
+### Create Token
+
+```text
+Create token LEDGTEST supply 1000000 decimals 9
+```
+
+```text
+User
+ ↓
+Token Transaction Built
+ ↓
+Review in Speculos
+ ↓
+Approve
+ ↓
+Signed
+ ↓
+Broadcast
+ ↓
+Mint Created
+```
+
+---
+
+# Screenshots
+
+Add screenshots here:
+
+* Solana Copilot Interface
+* Wallet Address Lookup
+* Balance Query
+* SOL Transfer Review
+* Speculos Approval Screen
+* Token Creation Flow
+* Successful Transaction Confirmation
+
+---
+
+# Acknowledgements
 
 Built using:
 
@@ -290,4 +381,6 @@ Built using:
 * React
 * TypeScript
 
-Special thanks to Ledger for open-sourcing the tools that make secure transaction workflows more accessible to developers.
+Special thanks to Ledger for open-sourcing tools that enable secure transaction workflows for AI-powered applications.
+
+#LedgerSponsor
