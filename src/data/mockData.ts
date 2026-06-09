@@ -56,9 +56,9 @@ export const strings: Strings = {
   greeting: () => "hey, gm!",
   greetingSub:
     "This is a Ledger-gated Solana agent.",
-  inputPlaceholder: "Try: get my address, check my balance, send 0.1 sol to ADDRESS",
+  inputPlaceholder: "Try: get my address, check my balance, send 0.1 sol to ADDRESS, create token NAME",
   footerNotice:
-    "Only address lookup, balance checks, and SOL transfers are enabled for this demo.",
+    "Your AI copilot for Solana. Explore wallets, check balances, and execute transactions with Ledger-backed security.",
   ledgerLabel: "Ledger",
   viewPortfolio: "Disabled",
   assetsHeading: "Disabled",
