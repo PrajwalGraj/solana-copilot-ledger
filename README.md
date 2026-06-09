@@ -382,5 +382,3 @@ Built using:
 * TypeScript
 
 Special thanks to Ledger for open-sourcing tools that enable secure transaction workflows for AI-powered applications.
-
-#LedgerSponsor
