@@ -1,0 +1,127 @@
+{
+  "wallet": {
+    "ledgerAddress": "EDUded8fGxKkRTWWjE9YFzCmrW54aXXabVKLn3NyvHqV",
+    "devnetBalanceSol": 1.36645412,
+    "lastTransaction": "4kukiykH5jByiA7cmrmYBdiCfvcNbkaULtQSDUr67xE9EREMDPwB6NsGLLpMerQaGDhyCtwNQsRjGSo6uJhxMVFR",
+    "connectionStatus": "Connected"
+  },
+  "transactions": [
+    {
+      "id": "4kukiykH5jByiA7cmrmYBdiCfvcNbkaULtQSDUr67xE9EREMDPwB6NsGLLpMerQaGDhyCtwNQsRjGSo6uJhxMVFR",
+      "kind": "token_creation",
+      "primary": "Token Created",
+      "secondary": "TEST • 5XhcPLapDSAimW3jayeomszErcWCyTykTnn5LD1pQZaP",
+      "timestamp": "9/6/2026, 5:16:30 pm",
+      "signature": "4kukiykH5jByiA7cmrmYBdiCfvcNbkaULtQSDUr67xE9EREMDPwB6NsGLLpMerQaGDhyCtwNQsRjGSo6uJhxMVFR",
+      "symbol": "TEST",
+      "mintAddress": "5XhcPLapDSAimW3jayeomszErcWCyTykTnn5LD1pQZaP",
+      "explorerUrl": "https://explorer.solana.com/address/5XhcPLapDSAimW3jayeomszErcWCyTykTnn5LD1pQZaP?cluster=devnet"
+    },
+    {
+      "id": "4QFxWVYxSoB47XYAVjNwED7k3bTUyJEh377YdnCjdyY9DfKEhzTTWD7uxPG8nkLD4Z2EavSNBeu9upFrQdDkY1GU",
+      "kind": "send",
+      "primary": "-0.1 SOL",
+      "secondary": "9mSSAxDAcHgR2mAu39Xw9pn7yjB2xHRsiV16bnUSWfcK",
+      "timestamp": "9/6/2026, 2:02:59 pm",
+      "signature": "4QFxWVYxSoB47XYAVjNwED7k3bTUyJEh377YdnCjdyY9DfKEhzTTWD7uxPG8nkLD4Z2EavSNBeu9upFrQdDkY1GU"
+    }
+  ],
+  "chats": [
+    {
+      "id": "chat-1781005762526",
+      "title": "create token name Prajwal symbol praj",
+      "icon": "Coins",
+      "timestamp": "05:19 pm"
+    },
+    {
+      "id": "chat-1781005744754",
+      "title": "get my address",
+      "icon": "Wallet",
+      "timestamp": "05:19 pm"
+    },
+    {
+      "id": "chat-1781005731937",
+      "title": "check my balance",
+      "icon": "BadgeDollarSign",
+      "timestamp": "05:18 pm"
+    },
+    {
+      "id": "chat-1781005565187",
+      "title": "Create Token\nName: test\nSymbol: test\nDecimals: 9\nSupply: 1000000",
+      "icon": "Coins",
+      "timestamp": "05:16 pm"
+    },
+    {
+      "id": "chat-1781005500958",
+      "title": "Create Token\nName: test\nSymbol: test\nDecimals: 9\nSupply: 1000000",
+      "icon": "Coins",
+      "timestamp": "05:15 pm"
+    },
+    {
+      "id": "chat-1781005050156",
+      "title": "check my balance",
+      "icon": "BadgeDollarSign",
+      "timestamp": "05:07 pm"
+    },
+    {
+      "id": "chat-1781005048152",
+      "title": "get my address",
+      "icon": "Wallet",
+      "timestamp": "05:07 pm"
+    },
+    {
+      "id": "chat-1781002598888",
+      "title": "check my balance",
+      "icon": "BadgeDollarSign",
+      "timestamp": "04:26 pm"
+    },
+    {
+      "id": "chat-1781002596272",
+      "title": "get my address",
+      "icon": "Wallet",
+      "timestamp": "04:26 pm"
+    },
+    {
+      "id": "chat-1780993954395",
+      "title": "send 0.1 SOL to 9mSSAxDAcHgR2mAu39Xw9pn7yjB2xHRsiV16bnUSWfcK",
+      "icon": "Send",
+      "timestamp": "02:02 pm"
+    },
+    {
+      "id": "chat-1780993547255",
+      "title": "send 0.1 SOL to 9mSSAxDAcHgR2mAu39Xw9pn7yjB2xHRsiV16bnUSWfcK",
+      "icon": "Send",
+      "timestamp": "01:55 pm"
+    },
+    {
+      "id": "chat-1780993537353",
+      "title": "check my balance",
+      "icon": "BadgeDollarSign",
+      "timestamp": "01:55 pm"
+    },
+    {
+      "id": "chat-1780993532493",
+      "title": "get my address",
+      "icon": "Wallet",
+      "timestamp": "01:55 pm"
+    },
+    {
+      "id": "chat-1780992186719",
+      "title": "send 0.1 SOL to 9mSSAxDAcHgR2mAu39Xw9pn7yjB2xHRsiV16bnUSWfcK",
+      "icon": "Send",
+      "timestamp": "01:33 pm"
+    },
+    {
+      "id": "chat-1780992139691",
+      "title": "check my balance",
+      "icon": "BadgeDollarSign",
+      "timestamp": "01:32 pm"
+    },
+    {
+      "id": "chat-1780992103651",
+      "title": "get my address",
+      "icon": "Wallet",
+      "timestamp": "01:31 pm"
+    }
+  ]
+}
